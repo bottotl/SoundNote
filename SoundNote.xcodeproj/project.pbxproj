@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		28CB515E1F4B03F400EB9929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB515D1F4B03F400EB9929 /* AppDelegate.swift */; };
-		28CB51601F4B03F400EB9929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB515F1F4B03F400EB9929 /* ViewController.swift */; };
 		28CB51631F4B03F400EB9929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CB51611F4B03F400EB9929 /* Main.storyboard */; };
 		28CB51661F4B03F400EB9929 /* SoundNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28CB51641F4B03F400EB9929 /* SoundNote.xcdatamodeld */; };
 		28CB51681F4B03F400EB9929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CB51671F4B03F400EB9929 /* Assets.xcassets */; };
 		28CB516B1F4B03F400EB9929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CB51691F4B03F400EB9929 /* LaunchScreen.storyboard */; };
+		28CB51731F4B04C600EB9929 /* JFTRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB51721F4B04C600EB9929 /* JFTRecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28CB515A1F4B03F400EB9929 /* SoundNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CB515D1F4B03F400EB9929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		28CB515F1F4B03F400EB9929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28CB51621F4B03F400EB9929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28CB51651F4B03F400EB9929 /* SoundNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoundNote.xcdatamodel; sourceTree = "<group>"; };
 		28CB51671F4B03F400EB9929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28CB516A1F4B03F400EB9929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28CB516C1F4B03F400EB9929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28CB51721F4B04C600EB9929 /* JFTRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFTRecordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				28CB515D1F4B03F400EB9929 /* AppDelegate.swift */,
-				28CB515F1F4B03F400EB9929 /* ViewController.swift */,
+				28CB51721F4B04C600EB9929 /* JFTRecordViewController.swift */,
 				28CB51611F4B03F400EB9929 /* Main.storyboard */,
 				28CB51671F4B03F400EB9929 /* Assets.xcassets */,
 				28CB51691F4B03F400EB9929 /* LaunchScreen.storyboard */,
@@ -138,8 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28CB51601F4B03F400EB9929 /* ViewController.swift in Sources */,
 				28CB51661F4B03F400EB9929 /* SoundNote.xcdatamodeld in Sources */,
+				28CB51731F4B04C600EB9929 /* JFTRecordViewController.swift in Sources */,
 				28CB515E1F4B03F400EB9929 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

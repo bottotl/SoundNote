@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  JFTRecordViewController.swift
 //  SoundNote
 //
 //  Created by jft0m on 2017/8/21.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class JFTRecordViewController: UIViewController {
+    @IBOutlet weak var recordButton: UIButton!
+    
+    @IBOutlet weak var playButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
-
