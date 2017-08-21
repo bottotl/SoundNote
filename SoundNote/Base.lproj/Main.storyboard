@@ -68,12 +68,10 @@
                                 <rect key="frame" x="329" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="List"/>
+                                <connections>
+                                    <segue destination="9RC-dJ-FWo" kind="show" id="hXW-nX-aMi"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="9RC-dJ-FWo" kind="show" id="Ubr-3c-TOm">
-                                    <nil key="action"/>
-                                </segue>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
@@ -86,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="593" y="20"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Sound List View Controller-->
         <scene sceneID="sLm-Lj-XQe">
             <objects>
-                <tableViewController id="9RC-dJ-FWo" sceneMemberID="viewController">
+                <tableViewController id="9RC-dJ-FWo" customClass="JFTSoundListViewController" customModule="SoundNote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nrb-7F-Tm6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

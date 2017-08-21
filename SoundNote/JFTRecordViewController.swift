@@ -28,15 +28,6 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
         } catch {
         }
-        
-        let codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
-        codeTimer.scheduleRepeating(deadline: .now(), interval: .seconds(1))
-        codeTimer.setEventHandler(handler: {
-            if self.audioPlayer != nil {
-                print("\(self.audioPlayer.isPlaying)")
-            }
-        })
-        codeTimer.resume()
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,7 +52,6 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
             audioPlayer.volume = 1
             audioPlayer.prepareToPlay()
             audioPlayer.play()
-            audioPlayer.delegate = self
             print("play!!")
         } catch let error {
             print(error)

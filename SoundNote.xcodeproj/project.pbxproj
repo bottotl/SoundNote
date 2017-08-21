@@ -13,6 +13,8 @@
 		28CB51681F4B03F400EB9929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CB51671F4B03F400EB9929 /* Assets.xcassets */; };
 		28CB516B1F4B03F400EB9929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CB51691F4B03F400EB9929 /* LaunchScreen.storyboard */; };
 		28CB51731F4B04C600EB9929 /* JFTRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB51721F4B04C600EB9929 /* JFTRecordViewController.swift */; };
+		28CB51771F4B2BDA00EB9929 /* JFTSoundListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB51761F4B2BDA00EB9929 /* JFTSoundListViewController.swift */; };
+		28CB51791F4B2E4000EB9929 /* JFTAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB51781F4B2E4000EB9929 /* JFTAudioCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		28CB516A1F4B03F400EB9929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28CB516C1F4B03F400EB9929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28CB51721F4B04C600EB9929 /* JFTRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFTRecordViewController.swift; sourceTree = "<group>"; };
+		28CB51761F4B2BDA00EB9929 /* JFTSoundListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFTSoundListViewController.swift; sourceTree = "<group>"; };
+		28CB51781F4B2E4000EB9929 /* JFTAudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFTAudioCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				28CB515D1F4B03F400EB9929 /* AppDelegate.swift */,
 				28CB51721F4B04C600EB9929 /* JFTRecordViewController.swift */,
+				28CB51761F4B2BDA00EB9929 /* JFTSoundListViewController.swift */,
+				28CB51781F4B2E4000EB9929 /* JFTAudioCell.swift */,
 				28CB51611F4B03F400EB9929 /* Main.storyboard */,
 				28CB51671F4B03F400EB9929 /* Assets.xcassets */,
 				28CB51691F4B03F400EB9929 /* LaunchScreen.storyboard */,
@@ -139,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CB51661F4B03F400EB9929 /* SoundNote.xcdatamodeld in Sources */,
+				28CB51791F4B2E4000EB9929 /* JFTAudioCell.swift in Sources */,
 				28CB51731F4B04C600EB9929 /* JFTRecordViewController.swift in Sources */,
+				28CB51771F4B2BDA00EB9929 /* JFTSoundListViewController.swift in Sources */,
 				28CB515E1F4B03F400EB9929 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
