@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
     
@@ -103,6 +104,7 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
             let audioSession = AVAudioSession.sharedInstance()
             try audioSession.setActive(false)
             playButton.isHidden = false
+            self.storeSound(fileName: (lastFileURL?.lastPathComponent)!)
         } catch let error {
             print(error)
         }
@@ -136,5 +138,26 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
                         AVNumberOfChannelsKey    : NSNumber(value: 1),
                         AVEncoderAudioQualityKey : NSNumber(value: Int32(AVAudioQuality.medium.rawValue))]
         return settings
+    }
+    // core data
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    func storeSound(fileName : String){
+        let context = getContext()
+        let entity = NSEntityDescription.entity(forEntityName: "Sound", in: context)
+        
+        let person = NSManagedObject(entity: entity!, insertInto: context)
+        
+        person.setValue(fileName, forKey: "filename")
+        
+        do {
+            try context.save()
+            print("saved")
+        }catch{
+            print(error)
+        }
     }
 }
