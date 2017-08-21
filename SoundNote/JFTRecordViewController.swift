@@ -23,11 +23,6 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         playButton.isHidden = true
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        } catch {
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +43,9 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
     @IBAction func playButtonClick(_ sender: Any) {
         if lastFileURL == nil {return}
         do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            try audioSession.setActive(true)
             audioPlayer = try AVAudioPlayer.init(contentsOf: lastFileURL!)
             audioPlayer.volume = 1
             audioPlayer.prepareToPlay()
@@ -74,9 +72,10 @@ class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
             // Not allow record
             return
         }
-        self.audioRecorder!.record()
+        
         do {
             let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSessionCategoryRecord)
             try audioSession.setActive(true)
             self.audioRecorder.record()
             print("start record")
