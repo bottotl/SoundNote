@@ -9,19 +9,33 @@
 import UIKit
 import AVFoundation
 
-class JFTRecordViewController: UIViewController {
+class JFTRecordViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
     var audioRecorder: AVAudioRecorder!
-//    var isRecording : Bool = false
+    var audioPlayer: AVAudioPlayer!
+    
     var lastFileURL : URL? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playButton.isHidden = true
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        } catch {
+        }
         
-        
+        let codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
+        codeTimer.scheduleRepeating(deadline: .now(), interval: .seconds(1))
+        codeTimer.setEventHandler(handler: {
+            if self.audioPlayer != nil {
+                print("\(self.audioPlayer.isPlaying)")
+            }
+        })
+        codeTimer.resume()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,17 +50,30 @@ class JFTRecordViewController: UIViewController {
     
     @IBAction func recordButtonTouchCancel(_ sender: Any) {
         print("停止录音")
-        self.lastFileURL = self.audioRecorder.url
-        print(self.lastFileURL as Any)
-        self.audioRecorder.stop()
-        self.audioRecorder = nil
+        self.stopRecord()
+    }
+    
+    @IBAction func playButtonClick(_ sender: Any) {
+        if lastFileURL == nil {return}
+        do {
+            audioPlayer = try AVAudioPlayer.init(contentsOf: lastFileURL!)
+            audioPlayer.volume = 1
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+            audioPlayer.delegate = self
+            print("play!!")
+        } catch let error {
+            print(error)
+        }
+        
     }
     
     func startAudioRecordWithUrl(url : URL) {
         print(url)
-        if self.audioRecorder == nil {
+        if audioRecorder == nil {
             do {
-                self.audioRecorder = try AVAudioRecorder.init(url: url, settings: self.audioSettings())
+                audioRecorder = try AVAudioRecorder.init(url: url, settings: self.audioSettings())
+                audioRecorder.prepareToRecord()
             } catch let error {
                 print(error)
             }
@@ -57,8 +84,8 @@ class JFTRecordViewController: UIViewController {
             return
         }
         self.audioRecorder!.record()
-        let audioSession = AVAudioSession.sharedInstance()
         do {
+            let audioSession = AVAudioSession.sharedInstance()
             try audioSession.setActive(true)
             self.audioRecorder.record()
             print("start record")
@@ -67,9 +94,26 @@ class JFTRecordViewController: UIViewController {
         }
     }
     
-    func createAudioSession() -> AVAudioSession {
-        let audioSession = AVAudioSession.sharedInstance();
-        return audioSession
+    func stopRecord() {
+        lastFileURL = audioRecorder.url
+        print(lastFileURL as Any)
+        do {
+            audioRecorder.stop()
+            audioRecorder = nil
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setActive(false)
+            playButton.isHidden = false
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        print("audioPlayerDidFinishPlaying")
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        print("error ")
     }
     
     func makeAudioPath() -> String {
